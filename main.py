@@ -4,6 +4,7 @@
 
 import pandas as pd
 import matplotlib.pyplot as plt
+from pathlib import Path
 
 #(20/20 points) Using a data source of your choice, such as data from data.gov or using the Faker package, generate or retrieve some data for creating basic statistics on. This will generally come in as json data, etc.
 
@@ -34,6 +35,10 @@ def topRankedGraph():
     plt.ylabel("Happiness Index", color= 'green')
     plt.title("Countries Ranked by Happiness")
 
+    # Save graph into charts folder
+    savefile = "charts/topRankedGraph.png"
+    plt.savefig(savefile)
+
     #Show graph
     plt.show()
 
@@ -53,6 +58,10 @@ def statsGraph():
     plt.xlabel("Stat Values")
     plt.ylabel("Happiness Index")
     plt.title("Statistics of Global Happiness Index")
+
+    # Save graph into charts folder
+    savefile = "charts/statsGraph.png"
+    plt.savefig(savefile)
 
     #Show graph
     plt.show()
@@ -83,6 +92,10 @@ def rangeGraph():
     axes[0].legend([len(higherRange)])
     axes[1].legend([len(lowerRange)])
 
+    #Save graph into charts folder
+    savefile = "charts/rangeGraph.png"
+    plt.savefig(savefile)
+
     # Show the subplots
     plt.show()
 
@@ -91,6 +104,13 @@ def rangeGraph():
 
 
 #Start of program
+# Create charts folder
+try:
+    Path("charts").mkdir()
+except FileExistsError:
+    pass
+
+#Call for graphs
 topRankedGraph()
 statsGraph()
 rangeGraph()
