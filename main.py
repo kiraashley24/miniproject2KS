@@ -36,11 +36,16 @@ def getList():
     return happyList
 
 def statsGraph():
-    mean = data["Happiness index, 2022"].mean().round(2)
-    median = data["Happiness index, 2022"].median()
-    min = data["Happiness index, 2022"].min()
-    max = data["Happiness index, 2022"].max()
-    print(mean, median, min, max)
+    meanValue = data["Happiness index, 2022"].mean()
+    medianValue = data["Happiness index, 2022"].median()
+    minValue = data["Happiness index, 2022"].min()
+    maxValue = data["Happiness index, 2022"].max()
+    plt.bar(['Mean', 'Median', 'Minimum', 'Maximum'], [meanValue, medianValue, minValue, maxValue])
+    plt.ylim(1, 8)
+    plt.xlabel("Stat Values")
+    plt.ylabel("Happiness Index")
+    plt.title("Statistics of Global Happiness Index")
+    plt.show()
 
 #def rangeGraph():
    # graphList = getList()
