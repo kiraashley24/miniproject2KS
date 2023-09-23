@@ -9,16 +9,15 @@ import matplotlib.pyplot as plt
 
 #What Countries are rated the happiest?
 
+
 #(10/10 points) Store this information in Pandas dataframe. These should be 2D data as a dataframe, meaning the data is labeled tabular data.
 
 data = pd.read_csv('happiness.csv', index_col='Countries')
 
 
-
-
 #(10/10 points) Using matplotlib, graph this data in a way that will visually represent the data. Really try to build some fancy charts here as it will greatly help you in future homework assignments and in the final project.
 
-
+#Graph 1 showing top 5 happiest countries according to the index
 def topRankedGraph():
     dataFive = data.head(5)
     dataFive['Happiness index, 2022'].plot()
@@ -28,13 +27,35 @@ def topRankedGraph():
     plt.title("Countries Ranked by Happiness")
     plt.show()
 
+def getList():
+    happyList = []
 
+    for index in data["Happiness index, 2022"]:
+        happyList.append(index)
+
+    return happyList
+
+def statsGraph():
+    mean = data["Happiness index, 2022"].mean().round(2)
+    median = data["Happiness index, 2022"].median()
+    min = data["Happiness index, 2022"].min()
+    max = data["Happiness index, 2022"].max()
+    print(mean, median, min, max)
+
+#def rangeGraph():
+   # graphList = getList()
+
+
+
+    #axs = data[['Happiness index, 2022'] > 5].plot.area(figsize=(12,4), subplots=True)
+    #plt.show()
 #(10/10 points) Save these graphs in a folder called charts as PNG files. Do not upload these to your project folder, the project should save these when it executes. You may want to add this folder to your .gitignore file.
 
 
 
 #Start of program
-topRankedGraph()
+
+statsGraph()
 
 
 #(10/10 points) There should be a minimum of 5 commits on your project, be sure to commit often!
