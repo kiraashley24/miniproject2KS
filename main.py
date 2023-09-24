@@ -19,7 +19,9 @@ data = pd.read_csv('happiness.csv', index_col='Countries')
 #Create series data to focus on "Happiness index, 2022" values
 seriesData = pd.Series(data["Happiness index, 2022"])
 
+
 #(10/10 points) Using matplotlib, graph this data in a way that will visually represent the data. Really try to build some fancy charts here as it will greatly help you in future homework assignments and in the final project.
+#(10/10 points) Save these graphs in a folder called charts as PNG files. Do not upload these to your project folder, the project should save these when it executes. You may want to add this folder to your .gitignore file.
 
 #Graph 1 showing top 5 happiest countries according to the index
 def topRankedGraph():
@@ -98,9 +100,6 @@ def rangeGraph():
 
     # Show the subplots
     plt.show()
-
-#(10/10 points) Save these graphs in a folder called charts as PNG files. Do not upload these to your project folder, the project should save these when it executes. You may want to add this folder to your .gitignore file.
-
 
 
 #Start of program
